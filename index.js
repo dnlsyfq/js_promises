@@ -88,3 +88,16 @@ prom.then(
 
  */
 
+/*
+let myPromises = Promise.all(
+    [returnsPromOne(),returnsPromTwo(),returnsPromThree()] //an array of three promises— the returned values from functions.
+);
+
+myPromises.then(
+    (arrayOfValues) => {
+        console.log(arrayOfValues);
+    }).catch(
+    (rejectionReason) => {
+        console.log(rejectionReason);
+    }
+);

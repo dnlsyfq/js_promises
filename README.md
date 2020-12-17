@@ -95,3 +95,42 @@ prom.then(
 );
 
 ```
+
+### Chaining Multiple Promises
+
+process of chaining promises together is called composition
+
+```
+firstPromiseFunction()
+.then((firstResolveVal) => {
+  return secondPromiseFunction(firstResolveVal);
+})
+.then((secondResolveVal) => {
+  console.log(secondResolveVal);
+});
+```
+
+### Promises with .all() method 
+
+dealing with multiple promises, but we don’t care about the order
+
+> Promise.all() accepts an array of promises as its argument and returns a single promise
+
+If every promise in the argument array resolves, the single promise returned from Promise.all() will resolve with an array containing the resolve value from each promise in the argument array.
+If any promise from the argument array rejects, the single promise returned from Promise.all() will immediately reject with the reason that promise rejected. This behavior is sometimes referred to as failing fast.
+
+```
+let myPromises = Promise.all(
+    [returnsPromOne(),returnsPromTwo(),returnsPromThree()] //an array of three promises— the returned values from functions.
+);
+
+myPromises.then(
+    (arrayOfValues) => {
+        console.log(arrayOfValues);
+    }).catch(
+    (rejectionReason) => {
+        console.log(rejectionReason);
+    }
+);
+```
+
